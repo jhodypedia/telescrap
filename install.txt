@@ -1,0 +1,1 @@
+npm install express ejs express-ejs-layouts express-session bcryptjs mysql2 socket.io telegram fluent-ffmpeg ffmpeg-static
