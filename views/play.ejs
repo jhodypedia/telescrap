@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<style>body,html{margin:0;background:#000;}video{width:100vw;height:100vh;}</style>
+</head><body>
+<video id="video" controls autoplay></video>
+<script>
+  const video = document.getElementById('video');
+  const src = "/hls/<%= video.filename.replace('.mp4','') %>/index.m3u8";
+  if (Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(src);
+    hls.attachMedia(video);
+  } else {
+    video.src = src;
+  }
+</script>
+</body></html>
