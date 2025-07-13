@@ -1,18 +1,17 @@
-<script src="/socket.io/socket.io.js"></script>
 <script src="/static/progress.js"></script>
-
+<div class="container">
 <h2>Admin Dashboard</h2>
-<form method="post" action="/admin/scrape">
-  <input name="channel" placeholder="Channel Telegram" required>
-  <input name="label" placeholder="Label judul (opsional)">
-  <button>Scrape & Download</button>
-</form>
-
-<h3>Riwayat Scrape Terbaru</h3>
-<ul id="scrape-list">
-  <% scrapes.forEach(s => { %>
+<div class="card p-4">
+  <form method="POST">
+    <input name="channel" class="form-control" placeholder="Channel Telegram" required>
+    <input name="label" class="form-control mt-2" placeholder="Label (Judul)">
+    <button class="btn btn-success mt-3">Scrape & Download</button>
+  </form>
+</div>
+<h4 class="mt-4">History:</h4><ul>
+  <% scrapes.forEach(s=>{ %>
     <li><%= s.channel_name %> — <%= s.status %> (<%= s.created_at %>)</li>
-  <% }); %>
+  <% }) %>
 </ul>
-<div id="progress" style="margin-top:10px;"></div>
-<a href="/logout">Logout</a>
+<div id="progress" class="mt-2"></div>
+</div>
