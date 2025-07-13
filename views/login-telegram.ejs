@@ -1,0 +1,7 @@
+<form method="post" action="/login-telegram">
+  <h2>Login Telegram Admin</h2>
+  <input name="phone" placeholder="Nomor HP (ex: +628...)"><br>
+  <input name="code" placeholder="Kode OTP"><br>
+  <% if (error) { %><div style="color:red"><%= error %></div><% } %>
+  <button>Login</button>
+</form>
