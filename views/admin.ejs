@@ -1,0 +1,18 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="/static/progress.js"></script>
+
+<h2>Admin Dashboard</h2>
+<form method="post" action="/admin/scrape">
+  <input name="channel" placeholder="Channel Telegram" required>
+  <input name="label" placeholder="Label judul (opsional)">
+  <button>Scrape & Download</button>
+</form>
+
+<h3>Riwayat Scrape Terbaru</h3>
+<ul id="scrape-list">
+  <% scrapes.forEach(s => { %>
+    <li><%= s.channel_name %> — <%= s.status %> (<%= s.created_at %>)</li>
+  <% }); %>
+</ul>
+<div id="progress" style="margin-top:10px;"></div>
+<a href="/logout">Logout</a>
